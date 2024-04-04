@@ -3,6 +3,8 @@ This is a SOC focused home lab that will use a variety of tools including Sliver
 
 # As a disclaimer, the original idea for this lab comes from Eric Capuano. Setting up the lab environment has been purposefully left out and I highly suggest anyone interested in replicating this lab visity his Substack page(linked below)!
 
+[Eric's Substack](https://blog.ecapuano.com/p/so-you-want-to-be-a-soc-analyst-intro)
+
 # SOC-Lab
 
 ## Objective
