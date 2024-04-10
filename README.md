@@ -103,7 +103,7 @@ The SOC Lab is designed to showcase my skills in a simulated real world environm
 
   19. Now I need to click the “Network” tab on the left-side menu
 
-![10 LimaCharlie Network](https://github.com/Lantern76/SOC-Lab/assets/119342094/258c12f9-b985-4406-a626-acdc2799e72c)
+![10 LimaCharlie Network](https://github.com/Lantern76/SOC-Lab/assets/119342094/e193649e-3823-4b4e-8e02-4b8837e32539)
 
   20. Next I click on the “File System” tab on the left-side menu
 
