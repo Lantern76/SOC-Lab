@@ -160,7 +160,8 @@ The SOC Lab is designed to showcase my skills in a simulated real world environm
 
 10. Lastly by expanding the detection event we are able to view the raw data of the event which can show important data such as the address and program which initiated the alert
 
-    ![DnR Rule](https://github.com/Lantern76/SOC-Lab/assets/119342094/bcaa152c-769b-4f12-9452-e72308d0c63c)
+
+### This was a fun and interesting lab to complete which gave me hands on experience in working with a SecOps Cloud based security platform (Limacharlie) as well as having to use and set up multiple VM's utlizing the VMware virtualization tool. Beign able to create custom detection rules and anlyzing suspicious logs also granted me new eye opening opportunties in the SOC field :) 
 
 
 
