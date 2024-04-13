@@ -114,21 +114,53 @@ The SOC Lab is designed to showcase my skills in a simulated real world environm
 ![12 Virus total ](https://github.com/Lantern76/SOC-Lab/assets/119342094/afe0a49c-c917-4039-ad15-ecf695603985)
 
 
-### That concludes part 1 of the home SOC lab. Part 2 will be uploaded soon and will countinue below :) 
+### Steps: Part 2
 
+### Objective: Part 2 will foucs on creating a rule using LimaCharlie to detect and report suspicious activity focused around the lsass.exe service and an attacker attempting to remotely dump the victims credentials through procdump.
 
+1. Countinuing on with Part 1 I will once again attempt to steal sensative data using the procdump function on the Linux machine
+     - procdump -n lsass.exe -s lsass.dmp
+     - This will "dump" the remote process memeory and save it locally to the Sliver C2 server
 
+       ![memory dump](https://github.com/Lantern76/SOC-Lab/assets/119342094/6961b0b4-e5a9-4cbb-9c9b-84c76c0145bd)
 
+2. Next is to switch over to LimaCharlie and look at the appropriate telemetry
+     - Lsass.exe is already classified as a sensative process due to it being a common target for dumping tools
+     - To view the lsass.exe memory dumpingn event I will need to move over to the Timeline section and filter for "SENSATIVE_PROCESS_ACCESS"
 
+![sensative](https://github.com/Lantern76/SOC-Lab/assets/119342094/18b6efc2-4c8a-432c-9fb1-168967e74437)
 
+3. Now that the credentail harvesting event has occured I am now able to craft the appropriate detection and response (D&R) rule that will send out an alert the next time this occurs
 
+![DnR Rule](https://github.com/Lantern76/SOC-Lab/assets/119342094/8c7f711a-c588-4a14-b86e-704971da9edf)
 
+4. In the "Detect" section of the new rule, I will need to remove all the content and replace it with a simpler and more effective version (Old rule will be shown on top of new rule below)
 
+![old rule](https://github.com/Lantern76/SOC-Lab/assets/119342094/90705f36-c991-48a5-ac6c-245272dbb110)
 
+![new rule](https://github.com/Lantern76/SOC-Lab/assets/119342094/b34dfd75-eb2f-40d6-831c-5e02a84535ed)
 
+5. The in the "Respond" section of the new rule I will then outline the desired response for the new detection rule
+     - For this instance the desired outcome is for LimaCharlie to send out an alert to the dashboard (New response shown in image above)
+  
+6. To test is the detection rule will work on future attacks the is a "test event" button located below which will test the new rule against the previous memory dump attempt
+     - In this case the rule has worked and will now send out alerts for similar events in the future.
+   
+![Screenshot 2024-04-13 030654](https://github.com/Lantern76/SOC-Lab/assets/119342094/84dbc3f4-6054-4361-b424-39f66eadba57)
 
+7. To activate and save the rule the "Save Rule" button will need to be pressed and the rule be given a name (also the slider must be set to enabled)
 
+![Screenshot 2024-04-13 030833](https://github.com/Lantern76/SOC-Lab/assets/119342094/a2e701f1-09d6-4e47-a7f2-4c9703737867)
 
+8. To test the new detection rule in real time I will repeat steps 1 - 2 of part two of the lab to once again attempt to steal data from the victims machine using the procdump tool
+
+9. But now after switching back over to LimaCharlie and moving to the detection option we can now view the detected threat caught from the unique rule I created earlier 
+
+![Detection](https://github.com/Lantern76/SOC-Lab/assets/119342094/eafab942-0586-46ae-931d-cba0c0e08c0f)
+
+10. Lastly by expanding the detection event we are able to view the raw data of the event which can show important data such as the address and program which initiated the alert
+
+    ![DnR Rule](https://github.com/Lantern76/SOC-Lab/assets/119342094/bcaa152c-769b-4f12-9452-e72308d0c63c)
 
 
 
